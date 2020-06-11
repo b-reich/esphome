@@ -62,6 +62,7 @@ sensor:
   - platform: adc
     pin: GPIO34
     name: ${upper_devicename} Input voltage
+    attenuation: 6db
     update_interval: 1s
     filters:
       - multiply: 10.989
