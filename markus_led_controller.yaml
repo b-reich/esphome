@@ -1,0 +1,75 @@
+# Enable logging
+logger:
+
+output:
+  - platform: ledc
+    pin: GPIO21
+    frequency: 1220
+    id: pwm_r
+  - platform: ledc
+    pin: GPIO19
+    frequency: 1220
+    id: pwm_g
+  - platform: ledc
+    pin: GPIO18
+    frequency: 1220
+    id: pwm_b
+  - platform: ledc
+    pin: GPIO17
+    frequency: 1220
+    id: pwm_w
+  - platform: ledc
+    pin: GPIO16
+    frequency: 1220
+    id: pwm_ww
+
+light:
+  - platform: rgbww
+    id: light1
+    restore_mode: RESTORE_DEFAULT_ON
+    name: ${upper_devicename}
+    red: pwm_r
+    green: pwm_g
+    blue: pwm_b
+    cold_white: pwm_w
+    warm_white: pwm_ww
+    cold_white_color_temperature: 6536 K
+    warm_white_color_temperature: 2000 K
+
+status_led:
+  pin: GPIO12
+  
+remote_receiver:
+  pin:
+    number: GPIO15
+    inverted: True
+  dump: nec
+  
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO13
+      mode: INPUT_PULLUP
+      inverted: True
+    name: ${upper_devicename} Push Button
+    filters:
+      - delayed_on: 10ms
+
+sensor:
+  - platform: wifi_signal
+    name: ${upper_devicename} WiFi Signal
+    update_interval: 60s
+  - platform: adc
+    pin: GPIO34
+    name: ${upper_devicename} Input voltage
+    update_interval: 1s
+    filters:
+      - multiply: 10.989
+  - platform: adc
+    pin: GPIO35
+    name: ${upper_devicename} LED current
+    attenuation: 6db
+    unit_of_measurement: "A"
+    update_interval: 1s
+    filters:
+      - multiply: 5

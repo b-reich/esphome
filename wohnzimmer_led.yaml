@@ -1,0 +1,12 @@
+substitutions:
+  devicename: wohnzimmerleds
+  upper_devicename: WohnzimmerLEDs
+
+esphome:
+  name: $devicename
+  platform: ESP32
+  board: esp-wrover-kit
+
+<<: !include markus_led_controller.yaml
+<<: !include base.yaml
+<<: !include wifi.yaml
