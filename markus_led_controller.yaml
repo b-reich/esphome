@@ -1,5 +1,5 @@
 # Enable logging
-logger:
+#logger:
 
 output:
   - platform: ledc
