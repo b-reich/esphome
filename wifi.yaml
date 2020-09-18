@@ -1,6 +1,6 @@
 wifi:
   # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ssid: "Field"
+  ssid: "Cofefifi"
   password: !secret wifi_password
   domain: ".lan"
   

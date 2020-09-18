@@ -1,0 +1,12 @@
+substitutions:
+  devicename: wohnzimmerlampe
+  upper_devicename: WohnzimmerLampe
+
+esphome:
+  name: $devicename
+  platform: ESP8266
+  board: esp8285
+
+<<: !include alfawise_pe1004t.yaml
+<<: !include base.yaml
+<<: !include wifi.yaml
