@@ -1,6 +1,6 @@
 substitutions:
   devicename: lichterkette
-  upper_devicename: LichterKette
+  upper_devicename: Lichterkette
 
 esphome:
   name: $devicename

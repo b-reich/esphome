@@ -1,6 +1,6 @@
 substitutions:
   devicename: wohnzimmerlampe
-  upper_devicename: WohnzimmerLampe
+  upper_devicename: Wohnzimmer Lampe
 
 esphome:
   name: $devicename
