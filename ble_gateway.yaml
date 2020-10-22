@@ -1,0 +1,28 @@
+substitutions:
+  devicename: ble_gateway
+  upper_devicename: BLE Gateway
+
+esphome:
+  name: $devicename
+  platform: ESP32
+  board: esp32doit-devkit-v1
+
+<<: !include base.yaml
+<<: !include wifi.yaml
+
+
+logger:
+#  level: debug
+
+esp32_ble_tracker:
+
+sensor:
+  - platform: xiaomi_lywsd03mmc
+    mac_address: "A4:C1:38:C0:CA:92"
+    bindkey: "7aa32c8a1b3d0482ea98a32822bf43e9"
+    temperature:
+      name: "Wohnzimmer Temperature"
+    humidity:
+      name: "Wohnzimmer Humidity"
+    battery_level:
+      name: "Wohnzimmer Battery Level"
