@@ -10,5 +10,5 @@ web_server:
 
 ota:
   password: !secret ota_password
-
   
+logger:
