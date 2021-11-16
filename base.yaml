@@ -1,6 +1,8 @@
 # Enable Home Assistant API
-api:
-  password: !secret api_password
+mqtt:
+  broker: "share.lan"
+  discovery: true
+  topic_prefix: esphome/$devicename
   
 web_server:
   port: 80
