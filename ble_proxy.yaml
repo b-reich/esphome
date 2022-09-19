@@ -1,0 +1,34 @@
+substitutions:
+  devicename: ble-proxy
+  upper_devicename: BLE Proxy
+
+esphome:
+  name: $devicename
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+esp32_ble_tracker:
+  # scan_parameters:
+  #   interval: 1100ms
+  #   window: 1100ms
+  #   active: true
+
+bluetooth_proxy:
+  
+api:
+
+button:
+- platform: safe_mode
+  name: Safe Mode Boot
+  entity_category: diagnostic
+
+sensor:
+  - platform: wifi_signal
+    name: ${upper_devicename} WiFi Signal
+    update_interval: 60s
+
+<<: !include base.yaml
+<<: !include wifi.yaml
