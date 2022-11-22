@@ -17,6 +17,7 @@ esp32_ble_tracker:
   #   active: true
 
 bluetooth_proxy:
+  active: true
   
 api:
 
@@ -29,6 +30,18 @@ sensor:
   - platform: wifi_signal
     name: ${upper_devicename} WiFi Signal
     update_interval: 60s
-
+  - platform: atc_mithermometer
+    mac_address: "A4:C1:38:C0:CA:92"
+    temperature:
+      name: "ATC Temperature"
+    humidity:
+      name: "ATC Humidity"
+    battery_level:
+      name: "ATC Battery-Level"
+    battery_voltage:
+      name: "ATC Battery-Voltage"
+    signal_strength:
+      name: "ATC Signal"
+    
 <<: !include base.yaml
 <<: !include wifi.yaml
