@@ -1,6 +1,8 @@
 # Enable Home Assistant API
 mqtt:
-  broker: "share.lan"
+  broker: "homeassistant.lan"
+  username: esphome
+  password: !secret mqtt_password
   discovery: true
   topic_prefix: esphome/$devicename
   
